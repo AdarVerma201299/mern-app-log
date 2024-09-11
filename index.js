@@ -6,7 +6,13 @@ const display = require("./routes/DisplayRouter");
 const order = require("./routes/OrderRouter");
 const location = require("./routes/Location");
 MongoDB();
-const cors = require("cors"); // Import CORS middleware
+const corsOptions = {
+  origin: 'https://mern-forntend-vt4i.onrender.com', 
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], 
+  credentials: true, 
+};
+
+app.use(cors(corsOptions));
 
 const app = express();
 const PORT = process.env.PORT || 5000;
